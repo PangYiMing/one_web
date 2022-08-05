@@ -1,0 +1,54 @@
+#! /usr/bin/env node
+// 为了方便测试
+// 支持执行命令参数解析，支持帮助提示
+const program = require("commander");
+// 改变字体console字体颜色 链式调用
+const chalk = require("chalk");
+const Inquirer = require("inquirer");
+const ora = require("ora");
+const fs = require("fs-extra");
+const figlet = require("figlet");
+
+
+console.log(
+    "\r\n" +
+    figlet.textSync("one_web", {
+        // font: "Ghost",
+        horizontalLayout: "full",
+        verticalLayout: "default",
+        width: 80,
+        whitespaceBreak: true,
+    })
+);
+
+// package.json 中存取了项目的版本号 version
+
+// 解析用户执行时输入的参数
+// process.argv 是 nodejs 提供的属性
+// npm run server --port 3000
+// 后面的 --port 3000 就是用户输入的参数
+program.name("one_web").usage(`<command> [option]`)
+    .version(`${require("../package.json").version}`);
+// 添加 create 命令
+program
+    .command("create <project-name>") // 增加创建指令
+    .description("create a new project") // 添加描述信息
+    .option("-f, --force", "overwrite target directory if it exists") // 强制覆盖
+    .action((projectName, cmd) => {
+        // 引入 create 模块，并传入参数
+        require("../lib/create")(projectName, cmd);
+    });
+
+
+// 监听 --help 指令
+program.on('--help', () => {
+    console.log(`\n  Run ${chalk.greenBright('one_web <command> --help')} for detailed usage of given command.\n`)
+})
+
+// 这一句不加 program 功能会失效
+const argv = program.parse(process.argv);
+// console.log("hello demo2", argv, chalk.bold(argv.args));
+
+
+
+// select_file()

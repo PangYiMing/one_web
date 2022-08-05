@@ -1,0 +1,27 @@
+{
+  "name": "one_web",
+  "version": "1.0.0",
+  "description": "<!--\r  * @Author: pang 7861445+redmapleleaf@user.noreply.gitee.com\r  * @Date: 2022-07-24 17:49:12\r  * @LastEditors: pang 7861445+redmapleleaf@user.noreply.gitee.com\r  * @LastEditTime: 2022-07-24 17:52:42\r  * @FilePath: \\one_web\\README.md\r  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE\r -->\r 前端项目一站式服务",
+  "main": "index.js",
+  "bin": "bin/enter",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/redmapleleaf/one_web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "chalk": "^4.1.2",
+    "commander": "^9.4.0",
+    "download-git-repo": "^3.0.2",
+    "figlet": "^1.5.2",
+    "fs-extra": "^10.1.0",
+    "inquirer": "^8.2.4",
+    "ora": "^5.4.1"
+  }
+}
